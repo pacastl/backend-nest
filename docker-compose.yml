@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+# Servicio de base de datos
+  db:
+  # El contenedor se puede ver como uan máquina hermética que nada sale ni entra (usamos los puertos para estas comunicaciones)
+    container_name: mean-db
+    # La imagen puede ser repositorios privados, es buena práctica especificar la versión
+    image: mongo:5.0.16
+    # Para que la información pueda persistir
+    volumes:
+    # Guarda la base de datos en mi equipo aquí
+      - ./mongo:/data/db
+    ports:
+    # 27017 es el puerto por defecto en mongo. Este puerto es el único medio de comunicación con el contenedor
+      - 27017:27017
+      # Levanta la BD al reiniciar docker o la BD
+    restart: always
