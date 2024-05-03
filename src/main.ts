@@ -15,6 +15,7 @@ async function bootstrap() {
     })
    );
    
-  await app.listen(3000);
+  //  Este puerto cambia según els ervicio donde lo desplegamos
+  await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

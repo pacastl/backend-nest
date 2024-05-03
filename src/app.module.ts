@@ -9,7 +9,9 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot(),
 
     // Nos conectamos a esta base de datos mongo
-    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forRoot(process.env.MONGO_URI,{
+      dbName:process.env.MONGO_DB_NAME
+    }),
     
     AuthModule,
   ],
